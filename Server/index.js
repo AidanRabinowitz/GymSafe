@@ -18,13 +18,13 @@ app.get('/', (req, res) => {
 })
 
 
-// app.use(cors())
+app.use(cors())
 
 // Sign up to the Database
 app.post('/signup', async (req, res) => {
     const client = new MongoClient(uri)
     const {email, password} = req.body
-
+    console.log(req.body)
     const generatedUserId = uuidv4()
     const hashedPassword = await bcrypt.hash(password, 10)
 
